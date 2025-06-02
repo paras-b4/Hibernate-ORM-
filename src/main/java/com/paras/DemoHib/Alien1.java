@@ -25,15 +25,16 @@ public class Alien1
 	private String aname;
 	@Column(name="alien_color" ,length =10)
 	private String acolor;
-	@Transient
+	@Transient // for temperary data storage not stored in db .
 	private double x;
 	private Fullname fname;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="Added_Date")
 	private Date addedDate;
-	
-	public Fullname getFname() {
+	@Embedded
+	public Fullname getFname() 
+	{
 		return fname;
 	}
 	public void setFname(Fullname fname) {

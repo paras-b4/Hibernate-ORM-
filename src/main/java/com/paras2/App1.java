@@ -15,7 +15,6 @@ public class App1
 {
 	public static void main (String [] args)
 	{
-
 		Configuration con = new Configuration().configure("hibernate4.cfg.xml").addAnnotatedClass(Alien1.class).addAnnotatedClass(Names.class);
 		ServiceRegistry sr= new ServiceRegistryBuilder().applySettings(con.getProperties()).buildServiceRegistry();
 		SessionFactory sf=con.buildSessionFactory(sr);
@@ -27,15 +26,15 @@ public class App1
 //		List<Alien1>  a = q.list();
 //		for(Alien1 A : a )
 //		System.out.println(A);
-//		System.out.println();
-//		Query q1=session.createQuery("from PARAS where Rollno= 35");
-//		Alien1 p=(Alien1)q1.uniqueResult();
-//		System.out.println(p);
-//		System.out.println();
-//		Query q2=session.createQuery("select Name,Rollno,Marks from PARAS where Rollno= 35");
-//		Object[] p2=(Object[])q2.uniqueResult();
-//		System.out.println(p2[0]+" : "+p2[1]+" : "+p2[2]);
+		System.out.println();
+		Query q1=session.createQuery("from PARAS where Rollno= 35");
+		Alien1 p=(Alien1)q1.uniqueResult();
+		System.out.println(p);
+		System.out.println();
 		
+		Query q2=session.createQuery("select Name,Rollno,Marks from PARAS where Rollno= 35");
+		Object[] p2=(Object[])q2.uniqueResult();
+		System.out.println(p2[0]+" : "+p2[1]+" : "+p2[2]);
 		
 		
 //		Random r =new Random();

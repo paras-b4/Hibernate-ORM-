@@ -8,6 +8,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 import java.util.Collection;
+import java.util.List;
 
 
 public class App1 
@@ -21,38 +22,43 @@ public class App1
 	Session session = sf.openSession();
 	Transaction tx=session.beginTransaction();
 	
-	
-	 
-	
-	
-	Laptop laptop=new Laptop();
-	Student s=new Student();
-	s.setRollno(7);
-	s.setName("Paras2");
-	s.setMarks(92);
-	s.getLaptop().add(laptop);
-	session.save(s);
-	
-	
-	laptop.setLid(103);
-	laptop.setLname("Lenovo");
-	//laptop.setS(s);
-	//laptop.getS.add(s);
-	
-	 
+//	Laptop laptop=new Laptop();
+//	Student s=new Student();
+//	s.setRollno(17);
+//	s.setName("Paras150");
+//	s.setMarks(92);
+//	s.getLaptop().add(laptop);
+//	session.save(s);
+//
+//	laptop.setLid(11);
+//	laptop.setLname("Lenovo");
+//	laptop.setS(s);
+//	//laptop.getS.add(s);
 //	
-	
-	session.save(laptop);
+//	Laptop laptop1=new Laptop();
+//	laptop1.setLid(118);
+//	laptop1.setLname("Dell");
+//	laptop1.setS(s);
+//	session.save(laptop1);
+//	
+//	
+//	session.save(laptop);
 	// Fetch Eager and lazy  // if you want to use eager then mention in the 
-//	Student s= session.get(Student.class,"Disha");
+	Student s1= (Student)session.get(Student.class,"Paras150");
 //	     
-//	System.out.println(s.getMarks());
+	System.out.println(s1);
 //	
-//	Collection <Laptop> laptop = s.getLaptop();
-//	for(Laptop l: laptop)
-//	{
-//		System.out.println(l);
-//	}
+	Collection <Laptop> laptop = s1.getLaptop();
+	for(Laptop l: laptop)
+	{
+		
+		System.out.println("Laptop are : "+l);
+		
+	}
+	Laptop l=(Laptop)session.get(Laptop.class, 111);
+	System.out.println(l);
+	Student s2=l.getS();
+	System.out.println(s2);
 //	
 //	
 	tx.commit();

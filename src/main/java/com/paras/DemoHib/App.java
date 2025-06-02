@@ -24,7 +24,6 @@ public class App
 		fn.setMidname("Paras");
 		fn.setLname("Yadav");
 		
-		
     	Alien1 telusko = new Alien1();
         telusko.setAid(105); // we don't need to set value for Aid bcoz its auto increment
         telusko.setAcolor("Cyan");
@@ -37,13 +36,14 @@ public class App
       
        Configuration con=new Configuration().configure().addAnnotatedClass(Alien1.class);
        ServiceRegistry sr = new ServiceRegistryBuilder().applySettings(con.getProperties()).buildServiceRegistry();
-       SessionFactory sf = con.buildSessionFactory();
+       SessionFactory sf = con.buildSessionFactory(sr);
       
        Session session =sf.openSession();
        Transaction ts =session.beginTransaction();
        session.save(telusko);
     //   telusko = (Alien1) session.get(Alien1.class,3);
-    
+      Alien1 telusko1=  (Alien1)session.get(Alien1.class, 3);
+     System.out.println(telusko1);
        ts.commit();
      //  System.out.println(telusko);   // here we are using toString method otherwise it will display Hashcode
         System.out.println("done..");

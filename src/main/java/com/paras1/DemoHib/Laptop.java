@@ -16,15 +16,15 @@ import javax.persistence.Table;
 @Table(name="Laptop1")
 public class Laptop 
 {
+	
 	@Id                                                                                                                 
 	private int Lid;
 	
 	private String Lname;
-//	@ManyToMany
+	//	@ManyToMany
 	//private Collection<Student> s = new ArrayList<Student>();
 	@ManyToOne
 	private Student s;
-	
 	
 	public Student getS() {
 		return s;
@@ -32,7 +32,8 @@ public class Laptop
 	public void setS(Student s) {
 		this.s = s;
 	}
-	public int getLid() {
+	public int getLid() 
+	{
 		return Lid;
 	}
 	public void setLid(int lid) {
@@ -52,7 +53,7 @@ public class Laptop
 	}*/
 	@Override
 	public String toString() {
-		return "Laptop [Lid=" + Lid + ", Lname=" + Lname + ", s=" + s + "]";
+		return "Laptop [Lid=" + Lid + ", Lname=" + Lname + "]";
 	}
 
 }

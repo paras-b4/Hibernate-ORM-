@@ -65,7 +65,7 @@ public class Student
 	}
 	@Override
 	public String toString() {
-		return "Student [Rollno=" + Rollno + ", Name=" + Name + ", Marks=" + Marks + ", laptop=" + laptop + "]";
+		return "Student [Rollno=" + Rollno + ", Name=" + Name + ", Marks=" + Marks + "]";
 	}
 	
 
